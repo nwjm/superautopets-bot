@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import discord
 import re
 import string
@@ -101,14 +102,16 @@ class petFinder(discord.Client):
                 found = re.search(regString, contents)
                 if found:
                     mymessage = 'Hey '
+		    usercount = 0
                     for user in self.users_to_tag:
                         if not user: continue
                         mymessage += f'<@{user}>, '
-                        
+                        usercount += 1
                         mymessage += 'looks like someone is playing Super Auto Pets!\n'
                         if word != 'super':
                             mymessage += 'Check out that ' + word.upper() + '!'
-                    await message.channel.send(mymessage)
+		    if usercount > 0:
+                        await message.channel.send(mymessage)
         
         for first in self.firstnames:
             if first in messageDict:
