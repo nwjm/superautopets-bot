@@ -203,7 +203,7 @@ class petFinder(discord.Client):
 
         for word in self.keywords:
             if word in contents:
-                regString = "^" + word + " | " + word + "$|." + word + " | " + word + ".|^" + word + "$"
+                regString = "^" + word + " | " + word + "$| " + word + "|^" + word + "$"
                 found = re.search(regString, contents)
                 if found:
                     mymessage = 'Hey '
