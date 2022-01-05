@@ -163,7 +163,7 @@ class petFinder(discord.Client):
         if message.author.id == self.user.id:
             return
         
-        if message.content.startswith('!cleanme:'):
+        if message.content.startswith('!cleanme'):
             await message.channel.purge(limit=100, check=(lambda message: message.author.id == self.user.id))
             return
         
