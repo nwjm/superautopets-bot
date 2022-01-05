@@ -219,6 +219,7 @@ class petFinder(discord.Client):
                     
                     if usercount > 0:
                         await message.channel.send(mymessage)
+                    return
         
         for first in self.firstnames:
             if first in messageDict:
@@ -238,7 +239,8 @@ class petFinder(discord.Client):
                             mymessage += 'looks like someone is playing Super Auto Pets!\nCheck out those ' + \
                                         first.capitalize() + ' ' + last.capitalize() + "!"
                             if usercount > 0:
-                                await message.channel.send(mymessage)   
+                                await message.channel.send(mymessage)
+                            return   
 
 client = petFinder()
 client.run('OTI3Nzk0MzQ3OTYzOTg1OTUw.YdPZ0g.3KiX9XwXqH3QXkoUzPVkyfxgjNI')
