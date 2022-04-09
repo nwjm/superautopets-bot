@@ -3,6 +3,7 @@ import discord
 import re
 import string
 import os.path
+from dotenv import load_dotenv
 
 class petFinder(discord.Client):
     file = open('keywords.txt')
@@ -127,5 +128,12 @@ class petFinder(discord.Client):
                                 await message.channel.send (f'Hey <@{user}>, looks like someone is playing Super Auto Pets!\nCheck out those '
                                                             + first.capitalize() + ' ' + last.capitalize() + "!")   
 
-client = petFinder()
-client.run('OTI3Nzk0MzQ3OTYzOTg1OTUw.YdPZ0g.3KiX9XwXqH3QXkoUzPVkyfxgjNI')
+def main():
+    load_dotenv()
+    key = os.environ.get("KEY")
+    print(key)
+    client = petFinder()
+    client.run(key)
+
+if __name__ == '__main__':
+    main()
